@@ -1,0 +1,297 @@
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-card:      rgba(255,255,255,0.65);
+            --border:       rgba(255,255,255,0.85);
+            --shadow:       0 8px 32px rgba(180,160,140,0.18);
+            --lavender-deep:#7B72E9;
+            --mint-deep:    #2EAF7D;
+            --text:         #1C1917;
+            --text-2:       #6B6560;
+            --text-3:       #ADA9A5;
+            --r:            18px;
+            --r-sm:         10px;
+            --r-xs:         6px;
+        }
+
+        body {
+            font-family:  'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #EEF4FF 0%, #F0EBF8 50%, #EAF4F0 100%);
+            min-height: 100vh;
+            min-height:   100vh;
+            color:        var(--text);
+        }
+
+        h1, h2, h3, h4 { font-family: 'Clash Display', sans-serif; }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ── Topbar ── */
+        .topbar {
+            position:        sticky;
+            top:             0;
+            z-index:         100;
+            background:      rgba(255,255,255,0.75);
+            backdrop-filter: blur(20px);
+            border-bottom:   1.5px solid var(--border);
+            padding:         0 32px;
+            height:          60px;
+            display:         flex;
+            align-items:     center;
+            justify-content: space-between;
+                border-bottom: 2px solid rgba(201,194,240,0.4);
+        }
+        .topbar-logo {
+            display:     flex;
+            align-items: center;
+            gap:         10px;
+        }
+        .topbar-logo img { width: 70px; height: 70px; object-fit: contain; }
+        .topbar-logo-text {
+            font-family:    'Clash Display', sans-serif;
+            font-size:      16px;
+            font-weight:    600;
+            color:          var(--text);
+        }
+        .topbar-nav { display: flex; align-items: center; gap: 8px; }
+        .topbar-nav a {
+            padding:       8px 14px;
+            border-radius: var(--r-sm);
+            font-size:     14px;
+            font-weight:   500;
+            color:         var(--text-2);
+            transition:    background 0.15s, color 0.15s;
+        }
+        .topbar-nav a:hover,
+        .topbar-nav a.active {
+            background: rgba(255,255,255,0.8);
+            color:      var(--text);
+        }
+        .topbar-logout {
+            padding:       8px 14px;
+            border-radius: var(--r-sm);
+            font-size:     14px;
+            font-weight:   500;
+            color:         var(--text-3);
+            cursor:        pointer;
+            transition:    color 0.15s;
+        }
+        .topbar-logout:hover { color: #E24B4A; }
+
+        /* ── Page ── */
+        .page { max-width: 900px; margin: 0 auto; padding: 36px 24px; }
+
+        /* ── Greeting ── */
+        .greeting { margin-bottom: 32px; }
+        .greeting h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.4px; }
+       .greeting h1 span { color: #7B72E9; }
+        .greeting p { font-size: 14px; color: var(--text-3); margin-top: 4px; }
+
+        /* ── Stats row ── */
+        .stats-row {
+            display:               grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap:                   16px;
+            margin-bottom:         32px;
+            overflow: visible;
+        }
+        .stat-card {
+            background:      var(--bg-card);
+            border:          1.5px solid var(--border);
+            border-radius:   var(--r);
+            padding:         20px 24px;
+            backdrop-filter: blur(22px);
+        }
+        .stat-card-value {
+            font-family:    'Clash Display', sans-serif;
+            font-size:      32px;
+            font-weight:    600;
+            letter-spacing: -1px;
+            color:          var(--text);
+        }
+        .stat-card-label { font-size: 13px; color: var(--text-2); margin-top: 4px; }
+
+
+        .stat-card-peek {
+            position: relative;
+            overflow: visible;
+        }
+
+        .stat-card-peek .peek-img {
+            position:       absolute;
+            top:            -85px;
+            left:           50%;
+            transform:      translateX(-50%);
+            width:          110px;
+            height:         auto;
+            pointer-events: none;
+            filter:         drop-shadow(0 4px 12px rgba(0,0,0,0.10));
+        }
+.stat-card:nth-child(1) { border-left: 4px solid #C9C2F0; }
+.stat-card:nth-child(2) { border-left: 4px solid #B6E8D3; }
+.stat-card:nth-child(3) { border-left: 4px solid #BFE3F9; }
+
+        /* ── Section ── */
+        .section { margin-bottom: 36px; }
+        .section-title {
+            font-size:      18px;
+            font-weight:    700;
+            letter-spacing: -0.3px;
+            margin-bottom:  16px;
+            color:          var(--text);
+            border-left:  4px solid #7B72E9;
+            padding-left: 10px;
+        }
+
+        /* ── Project Card ── */
+        .project-card {
+            background:      var(--bg-card);
+            border:          1.5px solid var(--border);
+            border-radius:   var(--r);
+            padding:         24px;
+            backdrop-filter: blur(16px);
+            margin-bottom:   12px;
+            transition:      box-shadow 0.15s;
+        }
+        .project-card:hover { box-shadow: var(--shadow); }
+        .project-header {
+            display:     flex;
+            align-items: center;
+            gap:         12px;
+            margin-bottom: 12px;
+        }
+        .project-emoji { font-size: 26px; }
+        .project-name  { font-size: 16px; font-weight: 600; flex: 1; }
+        .cover-bar {
+            height:        4px;
+            border-radius: 99px;
+            margin-bottom: 14px;
+        }
+        .project-meta {
+            display:   flex;
+            gap:       20px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            color:     var(--text-2);
+            margin-bottom: 14px;
+        }
+        .project-meta span { display: flex; align-items: center; gap: 5px; }
+        .progress-wrap { margin-top: 10px; }
+        .progress-track {
+            background:    rgba(180,160,140,0.15);
+            border-radius: 99px;
+            height:        6px;
+            overflow:      hidden;
+        }
+        .progress-fill {
+            height:        100%;
+            border-radius: 99px;
+            background:    var(--lavender-deep);
+            transition:    width 0.8s ease;
+        }
+        .progress-label {
+            display:         flex;
+            justify-content: space-between;
+            font-size:       12px;
+            color:           var(--text-3);
+            margin-top:      5px;
+        }
+
+        /* ── Invoice Row ── */
+        .invoice-row {
+            display:         flex;
+            align-items:     center;
+            justify-content: space-between;
+            background:      var(--bg-card);
+            border:          1.5px solid var(--border);
+            border-radius:   var(--r-sm);
+            padding:         14px 20px;
+            backdrop-filter: blur(16px);
+            margin-bottom:   8px;
+            transition:      box-shadow 0.15s;
+        }
+        .invoice-row:hover { box-shadow: var(--shadow); }
+        .invoice-no   { font-size: 14px; font-weight: 600; color: var(--text); }
+        .invoice-meta { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+        .invoice-amount {
+            font-family:    'Clash Display', sans-serif;
+            font-size:      18px;
+            font-weight:    700;
+            color:          var(--text);
+            text-align:     right;
+        }
+
+        /* ── Badges ── */
+        .badge {
+            display:       inline-flex;
+            align-items:   center;
+            padding:       3px 10px;
+            border-radius: 99px;
+            font-size:     12px;
+            font-weight:   500;
+        }
+        .badge-draft    { background: #BFE3F9; color: #2A7CB4; }
+        .badge-progress { background: #C9C2F0; color: #7B72E9; }
+        .badge-review   { background: #FAE4A2; color: #C98B1A; }
+        .badge-done     { background: #B6E8D3; color: #2EAF7D; }
+        .badge-cancelled{ background: #E5E2DF; color: #6B6560; }
+        .badge-unpaid   { background: #FAE4A2; color: #C98B1A; }
+        .badge-paid     { background: #B6E8D3; color: #2EAF7D; }
+        .badge-overdue  { background: #FFBCBA; color: #C0392B; }
+
+        /* ── Empty State ── */
+        .empty {
+            text-align: center;
+            padding:    40px 20px;
+            color:      var(--text-3);
+            font-size:  14px;
+        }
+        .empty-icon { font-size: 36px; margin-bottom: 8px; }
+
+
+        /* ── Meta Icons ──────────────────────────────────────────── */
+            .meta-icon {
+                width:         36px;
+                height:        36px;
+                object-fit:     contain;
+                vertical-align: middle;
+            }
+
+            /* ── Project Emoji ───────────────────────────────────────── */
+            .project-emoji {
+                width:      46px;
+                height:     46px;
+                object-fit: contain;
+            }
+
+            /* ── Project Description ─────────────────────────────────── */
+            .project-description {
+                font-size:     13px;
+                color:         var(--text-2);
+                margin-bottom: 12px;
+                line-height:   1.6;
+            }
+
+            /* ── Empty State ─────────────────────────────────────────── */
+            .empty-sticker {
+                width:      64px;
+                height:     64px;
+                object-fit: contain;
+            }
+
+            /* ── Invoice Icon ────────────────────────────────────────── */
+            .invoice-icon {
+                width:          30px;
+                height:         30px;
+                object-fit:     contain;
+                vertical-align: middle;
+                margin-right:   4px;
+            }
+
+            /* ── Invoice Actions ─────────────────────────────────────── */
+            .invoice-actions {
+                display:     flex;
+                align-items: center;
+                gap:         16px;
+            }

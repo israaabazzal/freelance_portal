@@ -1,0 +1,276 @@
+/* ── Reset & Base ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg:           #F7F5F2;
+    --bg-card:      rgba(255, 255, 255, 0.65);
+    --border:       rgba(255, 255, 255, 0.85);
+    --shadow:       0 8px 32px rgba(180, 160, 140, 0.18);
+    --peach:        #FFCBB4;
+    --lavender:     #C9C2F0;
+    --mint:         #B6E8D3;
+    --sky:          #BFE3F9;
+    --text:         #1C1917;
+    --text-2:       #6B6560;
+    --text-3:       #ADA9A5;
+    --peach-deep:   #F4845F;
+    --r:            18px;
+    --r-sm:         10px;
+}
+
+body {
+    font-family:     'Plus Jakarta Sans', sans-serif;
+    background:      linear-gradient(135deg, #F6F1EC 0%, #EEF1F4 50%, #F4ECE8 100%);
+    min-height:      100vh;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    overflow:        hidden;
+}
+
+
+
+.bg-video {
+    position:   fixed;
+    top:        0; left: 0;
+    width:      100%;
+    height:     100%;
+    object-fit: cover;
+    z-index:    -1;
+    opacity:    0.70; /* keeps it subtle so card stays readable */
+}
+
+/* ── Layout ──────────────────────────────────────────────── */
+.login-wrapper {
+    position:        relative;
+    z-index:         1;
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
+    gap:             24px;
+    width:           100%;
+    max-width:       420px;
+    padding:         24px 16px;
+    animation:       fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Logo ────────────────────────────────────────────────── */
+.login-logo {
+    display:        flex;
+    flex-direction: column;
+    align-items:    center;
+    gap:            8px;
+    text-align:     center;
+}
+
+.logo-wrap{
+    animation: floatLogo 6s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+    0%,100%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-8px);
+    }
+}
+
+.logo-img{
+    position: relative;
+    z-index: 1;
+
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+   filter:
+    brightness(1.03)
+    saturate(1.05)
+    drop-shadow(0 14px 30px rgba(120,100,90,.22))
+    drop-shadow(0 4px 10px rgba(255,255,255,.35));
+}
+
+
+
+.logo-text {
+    font-family:    'Clash Display', sans-serif;
+    font-size: 58px;
+    font-weight: 650px;
+    letter-spacing: -2px;
+    line-height: 1;
+    color:         #1F1C1A;
+       text-shadow:
+    0 2px 10px rgba(255,255,255,0.35);
+}
+
+h1 span{
+    color: #B7A8D9;
+}
+/* ── Glass Card ──────────────────────────────────────────── */
+.glass {
+    background:              var(--bg-card);
+    border:                  1.5px solid var(--border);
+    border-radius:           var(--r);
+    box-shadow:              var(--shadow);
+    backdrop-filter:         blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+}
+
+.glass:hover{
+    transform:
+    translateY(-6px);
+
+    transition: .35s ease;
+}
+.login-card {
+    width:   100%;
+    padding: 36px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    
+    
+}
+
+.login-card h2 {
+    
+    font-family:    'Clash Display', sans-serif;
+    font-size:      24px;
+    font-weight:    600;
+    color:          var(--text);
+    letter-spacing: -0.3px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size:      11px;
+    font-weight:    500;
+    color:          var(--text-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: -7px;
+}
+.subtitle2{
+    font-size:      11px;
+    font-weight:    500;
+    color:var(--text-2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: -7px;
+}
+
+/* ── Form ────────────────────────────────────────────────── */
+.form-group {
+    display:        flex;
+    flex-direction: column;
+    gap:            7px;
+    margin-top:     10px;
+}
+
+label {
+    font-size:   13px;
+    font-weight: 500;
+    color:       var(--text-2);
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width:         100%;
+    padding:       11px 14px;
+    border:        1.5px solid rgba(180, 160, 140, 0.25);
+    border-radius: var(--r-sm);
+    background:    rgba(255,255,255,0.6);
+    font-family:   'Plus Jakarta Sans', sans-serif;
+    font-size:     14px;
+    color:         var(--text);
+    outline:       none;
+    transition:    border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    border-color: rgba(180, 160, 140, 0.6);
+    box-shadow:   0 0 0 3px rgba(201, 194, 240, 0.25);
+    background:   rgba(255,255,255,0.85);
+}
+
+input::placeholder { color: var(--text-3); }
+
+/* ── Password Wrapper ────────────────────────────────────── */
+.password-wrap {
+    position: relative;
+}
+.password-wrap input {
+    padding-right: 42px;
+}
+.show-pass {
+    position:   absolute;
+    right:      12px;
+    top:        50%;
+    transform:  translateY(-50%);
+    background: none;
+    border:     none;
+    cursor:     pointer;
+    color:      var(--text-3);
+    padding:    0;
+    display:    flex;
+    align-items:center;
+    transition: color 0.2s;
+}
+.show-pass:hover { color: var(--text-2); }
+
+/* ── Error ───────────────────────────────────────────────── */
+.error-msg {
+    font-size:  13px;
+    color:      #E24B4A;
+    min-height: 18px;
+    margin-top: 4px;
+    text-align: center;
+}
+
+/* ── Button ──────────────────────────────────────────────── */
+.btn-login {
+    width:         100%;
+    padding:       13px;
+    margin-top:    8px;
+    background:    var(--text);
+    color:         #fff;
+    border:        none;
+    border-radius: var(--r-sm);
+    font-family:   'Plus Jakarta Sans', sans-serif;
+    font-size:     15px;
+    font-weight:   600;
+    cursor:        pointer;
+    transition:    background 0.2s, transform 0.15s;
+    display:       flex;
+    align-items:   center;
+    justify-content:center;
+    gap:           8px;
+    min-height:    46px;
+}
+.btn-login:hover  { background: #2e2a27; }
+.btn-login:active { transform: scale(0.98); }
+
+/* ── Loader ──────────────────────────────────────────────── */
+.loader {
+    width:         18px;
+    height:        18px;
+    border:        2.5px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation:     spin 0.7s linear infinite;
+}
+.hidden { display: none; }
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
